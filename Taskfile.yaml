@@ -18,9 +18,6 @@ tasks:
 
   test:
     desc: Runs the tests in the 'tests' directory
-    ignore_error: true
-    env:
-      OUNIT_CI: true
     preconditions:
       - command -v dune
     deps:
@@ -34,8 +31,6 @@ tasks:
     sources:
       - lib/**/*.ml
       - test/**/*.ml
-    env:
-      OUNIT_CI: true
     preconditions:
       - command -v dune
     deps:
@@ -74,3 +69,7 @@ tasks:
       - command -v utop
     cmds:
       - cmd: dune utop
+
+  git:hooks:
+    desc: sets up the githooks for the project
+    cmd: git config core.hooksPath .githooks

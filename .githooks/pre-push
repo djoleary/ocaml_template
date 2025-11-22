@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Pre-push hook - run tests before pushing
+
+set -e
+
+echo "🧪 Running tests before push..."
+
+# Run the full test suite
+task test
+
+if [ $? -eq 0 ]; then
+    echo "✅ All tests passed! Push allowed."
+    exit 0
+else
+    echo "❌ Tests failed! Push blocked."
+    echo "Fix the failing tests before pushing."
+    exit 1
+fi
