@@ -33,6 +33,7 @@
             janeStreet.re2 # regular expression library
             fmt # pretty printing library
             cmdliner # command line library
+            ppx_deriving # derivers
           ];
           sysTools = with pkgs; [
             go-task
